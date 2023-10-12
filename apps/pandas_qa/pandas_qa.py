@@ -104,8 +104,8 @@ def run_script(script_body: str, user_input: Dict):
     absolute_csv_path = os.path.abspath(user_input["csv_path"])
     absolute_script_path = os.path.abspath(SCRIPT_PATH)
     print(absolute_csv_path)
-    load_df = f"import pandas as pd\ndf = pd.read_csv('{absolute_csv_path}')\n"
-    script_body = load_df + script_body
+    df = f"import pandas as pd\ndf = pd.read_csv('{absolute_csv_path}')\n"
+    script_body = df + script_body
 
     with open(absolute_script_path, "w+") as script_file:
         script_file.write(script_body)
